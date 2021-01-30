@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.scss';
+import React from 'react';
 
-function App() {
-  return (
-	<div className="App">
-		<header className="App-header">
-			<img src={logo} className="App-logo" alt="logo" />
-			<p>
-			Edit <code>src/App.js</code> and save to reload.
-			</p>
-			<a
-			className="App-link"
-			href="https://reactjs.org"
-			target="_blank"
-			rel="noopener noreferrer"
-			>
-			Learn React
-			</a>
-		</header>
-	</div>
-  );
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub, faLinkedin} from '@fortawesome/free-brands-svg-icons'
+import { faTools } from '@fortawesome/free-solid-svg-icons'
+
+import './App.scss';
+import rain from './assets/rain.mp4';
+
+class App extends React.Component {
+	render() {
+		return (
+			<div>
+				<nav>
+
+				</nav>
+				<section id="home">
+					<video id="background" loop autoPlay>
+						<source src={rain} type="video/mp4"/>
+					</video>
+
+					<div id="home-content">
+						<h1 id="name">
+							William Wu
+						</h1>
+						<h2 id="roles">
+							Web Developer | Game Developer
+						</h2>
+						<div id="socials">
+							<FontAwesomeIcon icon={faGithub} />
+							<FontAwesomeIcon icon={faLinkedin} />
+						</div>
+						<div id="wip">
+							<FontAwesomeIcon icon={faTools} />
+							Under construction!
+						</div>
+					</div>
+				</section>
+			</div>
+		);
+	}
 }
 
 export default App;
