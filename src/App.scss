@@ -20,7 +20,7 @@ body {
 
 	color: white;
 
-	#background {
+	#rain-image, #rain-video {
 		position: absolute;
 
 		object-fit: cover;
@@ -29,12 +29,17 @@ body {
 		width: 100vw;
 		height: 100vh;
 		min-height: inherit;
-
+	}
+	#rain-image {
+		z-index: -2;
+	}
+	#rain-video {
 		z-index: -1;
 	}
 
 	#home-content {
-		text-shadow: 0 0 0.5rem black;
+		filter: drop-shadow(0 0 0.1rem black);
+
 		#name, #roles {
 			margin: 0;
 		}
@@ -50,8 +55,7 @@ body {
 		}
 		#socials {
 			font-size: 3rem;
-			svg {
-				filter: drop-shadow(0 0 0.1rem black);
+			* {
 				margin: 0 0.5rem;
 			}
 		}
@@ -66,7 +70,7 @@ body {
 
 @media(min-width: 60vh) {
 	#home {
-		#background {
+		#rain-image, #rain-video {
 			object-position: 0% 100%;
 		}
 	}

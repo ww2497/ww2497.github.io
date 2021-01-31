@@ -5,7 +5,8 @@ import { faGithub, faLinkedin} from '@fortawesome/free-brands-svg-icons'
 import { faTools } from '@fortawesome/free-solid-svg-icons'
 
 import './App.scss';
-import rain from './assets/rain.mp4';
+import rainImage from './assets/rain.jpg';
+import rainVideo from './assets/rain.mp4';
 
 class App extends React.Component {
 	render() {
@@ -15,8 +16,9 @@ class App extends React.Component {
 
 				</nav>
 				<section id="home">
-					<video id="background" loop autoPlay>
-						<source src={rain} type="video/mp4"/>
+					<img id="rain-image" src={rainImage} alt="Image of rain through a window. The video is an animated version." />
+					<video id="rain-video" loop autoPlay muted playsInline>
+						<source src={rainVideo} type="video/mp4" />
 					</video>
 
 					<div id="home-content">
