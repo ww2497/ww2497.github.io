@@ -13,12 +13,19 @@ class App extends React.Component {
 		return (
 			<div>
 				<nav>
-
+					<ul>
+						<a href="#home"><li>Home</li></a>
+						<a href="#about"><li>About</li></a>
+						<a href="#experience"><li>Experience</li></a>
+						<a href="#projects"><li>Projects</li></a>
+						<a href="#contact"><li>Contact</li></a>
+					</ul>
 				</nav>
 				<section id="home">
-					<img id="rain-image" src={rainImage} alt="Image of rain through a window. The video is an animated version." />
-					<video id="rain-video" loop autoPlay muted playsInline>
+					<img id="rain-image" src={rainImage} alt="Graphic of a rainy day in the city through a window." />
+					<video id="rain-video" title="Animated graphic of a rainy day in the city through a window." loop autoPlay muted playsInline>
 						<source src={rainVideo} type="video/mp4" />
+						Your browser does not support the video tag.
 					</video>
 
 					<div id="home-content">
@@ -34,9 +41,14 @@ class App extends React.Component {
 						</div>
 						<div id="wip">
 							<FontAwesomeIcon icon={faTools} />
-							Under construction!
+							<span>Under construction!</span>
 						</div>
 					</div>
+				</section>
+				<section id="about">
+					About
+					<br/>
+					Hello! My name is William.
 				</section>
 			</div>
 		);
