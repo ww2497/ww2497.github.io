@@ -13,22 +13,31 @@ import rainImage from './assets/rain.jpg';
 import rainVideo from './assets/rain.mp4';
 
 class App extends React.Component {
-	componentDidMount() {
-		var vid = document.getElementById("rain-video");
-		vid.play(); // get around autoplay being disabled by low power mode
+	constructor(props) {
+		super(props);
 	}
 
+	componentDidMount() {
+	}
 	showNav(data) {
 		document.getElementById("nav").classList.add("show");
 	}
 	hideNav(data) {
 		document.getElementById("nav").classList.remove("show");
 	}
+	transparentNav(data) {
+		document.getElementById("nav").classList.remove("opaque");
+	}
 	opaqueNav(data) {
 		document.getElementById("nav").classList.add("opaque");
 	}
-	transparentNav(data) {
-		document.getElementById("nav").classList.remove("opaque");
+	playVideo(data) {
+		var vid = document.getElementById("rain-video");
+		vid.play();
+	}
+	stopVideo(data) {
+		var vid = document.getElementById("rain-video");
+		vid.pause();
 	}
 
 	render() {
@@ -42,6 +51,8 @@ class App extends React.Component {
 						<li id="navResume"><Link activeClass="active" to="resume" spy={true} smooth={true} duration={scrollDuration} onSetActive={this.opaqueNav}>Résumé</Link></li>
 					</ul>
 				</nav>
+				<Waypoint onEnter={this.playVideo} onLeave={this.stopVideo}>
+				</Waypoint>
 				<section id="home">
 					<img id="rain-image" src={rainImage} alt="Graphic of a rainy day in the city through a window." />
 					<video id="rain-video" title="Animated graphic of a rainy day in the city through a window." loop muted playsInline>
