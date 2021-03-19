@@ -137,7 +137,7 @@ class App extends React.Component {
 						Résumé
 					</h1>
 					<p>
-						Sorry, this part is also under construction! For now, <a href="/Résumé.pdf">here's</a> a link to a PDF of my résumé.
+						Sorry, this part is also under construction! For now, <a href="/résumé.pdf">here's</a> a link to a PDF of my résumé.
 					</p>
 				</section>
 			</div>
