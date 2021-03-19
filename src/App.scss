@@ -1,6 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
 
-$opaque-nav-color: #161b22;
+$github-nav: #161b22;
+$github-nav-text: #f0f6fc;
+$github-body: #0d1117;
+$github-body-text: #8b949e;
 
 html {
 	font-size: 100%;
@@ -8,7 +11,6 @@ html {
 
 body {
 	margin: 0;
-	text-align: center;
 	font-family: 'Open Sans', sans-serif;
 }
 
@@ -20,24 +22,37 @@ ul {
 	padding: 0;
 }
 
-%white {
+%white-shadow {
 	color: white;
 	filter: drop-shadow(0 0 0.1rem black);
+}
+
+.justify {
+	text-align: justify;
+}
+
+.white {
+	color: white;
 }
 
 nav {
 	position: fixed;
 	width: 100%;
 	opacity: 0;
+	font-weight: 700;
 	transition: opacity 0.2s, background-color 0.2s;
 	z-index: 1;
 
-	&.show {
+	&.transparent {
 		opacity: 1;
 	}
 	&.opaque {
 		opacity: 1;
-		background-color: $opaque-nav-color;
+		background-color: $github-nav;
+
+		ul li a {
+			color: $github-nav-text;
+		}
 	}
 	ul {
 		list-style: none;
@@ -49,7 +64,7 @@ nav {
 			padding: 1rem 0;
 
 			a {
-				@extend %white;
+				@extend %white-shadow;
 
 				padding: 1rem 1rem;
 				transition: color 0.2s;
@@ -65,11 +80,25 @@ nav {
 	}
 }
 
-#home {
+section {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	align-items: center;
+	text-align: center;
 
+	.content {
+		margin-left: 2rem;
+		margin-right: 2rem;
+		max-width: 50rem;
+	}
+	.section-name {
+		margin-block-start: 0;
+		padding-top: 7.5rem;
+		color: orange;
+	}
+}
+
+#home {
 	height: 100vh;
 	min-height: 55vw;
 
@@ -77,7 +106,7 @@ nav {
 		position: absolute;
 
 		object-fit: cover;
-		object-position: 50% 0%;
+		object-position: 50% 0%; // show the center of the background video (rain part)
 
 		width: 100%;
 		height: 100vh;
@@ -93,26 +122,21 @@ nav {
 	> div {
 		flex: 1;
 	}
-	#home-content {
-		@extend %white;
+	.content {
+		@extend %white-shadow;
 
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
 		padding: 5rem 0;
+		font-weight: 700;
 
 		#name, #roles {
 			margin: 0;
 		}
 		#name {
 			font-size: 3rem;
-			font-weight: 700;
 		}
 		#roles {
 			margin-bottom: 0.25rem;
-
 			font-size: 0.9rem;
-			font-weight: 500;
 		}
 		#socials {
 			font-size: 3rem;
@@ -130,14 +154,64 @@ nav {
 }
 
 #about, #resume {
-	height: 100vh;
-	background-color: white;
+	min-height: 100vh;
+	font-weight: 600;
 }
 
-@media(min-width: 60vh) {
+#about {
+	background-color: $github-body;
+	color: $github-body-text;
+
+	* {
+		max-width: 50rem;
+	}
+
+	a {
+		color: white;
+	}
+
+	#about-introduction * {
+		max-width: 50rem;
+		margin: 5rem inherit;
+
+		span {
+			color: lighten($github-body-text, 10);
+		}
+	}
+
+	#about-info {
+		max-width: 50rem;
+		margin-bottom: 5rem;
+
+		div {
+			text-align: left;
+		}
+	}
+}
+
+#resume {
+	background-color: white;
+
+	a {
+		color: orange;
+	}
+}
+
+@media(min-width: 60vh) { // desktop proportions
 	#home {
 		#rain-image, #rain-video {
-			object-position: 0% 100%;
+			object-position: 0% 100%; // always show left side of the background video
+		}
+	}
+
+	#about {
+		#about-info {
+			display: flex;
+			gap: 2.5rem;
+
+			div {
+				flex: 1;
+			}
 		}
 	}
 }

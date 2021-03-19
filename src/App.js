@@ -20,10 +20,10 @@ class App extends React.Component {
 	componentDidMount() {
 	}
 	showNav(data) {
-		document.getElementById("nav").classList.add("show");
+		document.getElementById("nav").classList.add("transparent");
 	}
 	hideNav(data) {
-		document.getElementById("nav").classList.remove("show");
+		document.getElementById("nav").classList.remove("transparent");
 	}
 	transparentNav(data) {
 		document.getElementById("nav").classList.remove("opaque");
@@ -64,7 +64,7 @@ class App extends React.Component {
 						<div></div>
 					</Waypoint>
 
-					<div id="home-content">
+					<div class="content">
 						<h1 id="name">
 							William Wu
 						</h1>
@@ -84,24 +84,52 @@ class App extends React.Component {
 					<div></div>
 				</section>
 				<section id="about">
-					<br/>
-					<br/>
-					<br/>
-					<br/>
-					<br/>
-					About
-					<br/>
-					Hello! My name is William.
-					<br/>
-					This part is also under construction.
+					<div class="content">
+						<div id="about-introduction">
+							<h1 class="section-name">
+								About
+							</h1>
+							<p class="white">
+								NOTE: Under construction!
+							</p>
+							<h1 class="white">
+								Hello there!
+							</h1>
+							<p class="justify">
+								I'm <span>William</span>, an undergraduate <span>Computer Science</span> student at the <span>Rochester Institute of Technology</span>.
+								My expected graduation date is <span>May 2023</span>.
+								I have a passion for full-stack development with a lean towards front-end development.
+							</p>
+							<p class="justify">
+								At present <span>(Spring 2020)</span>, I'm taking the semester off and waiting for classes to come offline so that my learning experience isn't affected.
+								In the meantime, I'm doing game development work in addition to working on some other projects, such as this website.
+							</p>
+						</div>
+						<div id="about-info">
+							<div>
+								<h3 class="white">OBJECTIVE</h3>
+								<p class="justify">
+									Currently, I'm available for the summer & fall of 2021.
+									I'd be interested in a software developer or full-stack developer internship for either the summer or fall, or for both.
+									You can find my résumé below ― if you think I'd be a good fit, shoot me an email at <a href="mailto:ww2497@rit.edu">ww2497@rit.edu</a>!
+								</p>
+							</div>
+							<div>
+								<h3 class="white">INFORMATION</h3>
+								<p class="justify">
+									TODO
+								</p>
+							</div>
+						</div>
+					</div>
 				</section>
 				<section id="resume">
-					<br/>
-					<br/>
-					<br/>
-					<br/>
-					<br/>
-					Bees?
+					<h1 class="section-name">
+						Résumé
+					</h1>
+					<p>
+						Sorry, this part is also under construction! For now, <a href="/Résumé.pdf">here's</a> a link to a PDF of my résumé.
+					</p>
 				</section>
 			</div>
 		);
