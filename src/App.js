@@ -6,7 +6,7 @@ import { Waypoint } from 'react-waypoint';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin} from '@fortawesome/free-brands-svg-icons'
-import { faTools } from '@fortawesome/free-solid-svg-icons'
+import { faTools, faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons'
 
 import './App.scss';
 import rainImage from './assets/rain.jpg';
@@ -27,9 +27,11 @@ class App extends React.Component {
 	}
 	transparentNav(data) {
 		document.getElementById("nav").classList.remove("opaque");
+		document.getElementById("nav-background").classList.remove("fixed");
 	}
 	opaqueNav(data) {
 		document.getElementById("nav").classList.add("opaque");
+		document.getElementById("nav-background").classList.add("fixed");
 	}
 	playVideo(data) {
 		var vid = document.getElementById("rain-video");
@@ -72,18 +74,25 @@ class App extends React.Component {
 							Web Developer | Game Developer
 						</h2>
 						<div id="socials">
-							<FontAwesomeIcon icon={faGithub} />
-							<FontAwesomeIcon icon={faLinkedin} />
+							<a id="icon-github" href="https://github.com/ww2497">
+								<FontAwesomeIcon icon={faGithub} />
+							</a>
+							<a id="icon-linkedin" href="https://www.linkedin.com/in/ww2497/">
+								<FontAwesomeIcon icon={faLinkedin} />
+							</a>
+							<a id="icon-mail" href="mailto:ww2497@rit.edu">
+								<FontAwesomeIcon icon={faEnvelopeSquare} />
+							</a>
 						</div>
 						<div id="wip">
 							<FontAwesomeIcon icon={faTools} />
 							<span>Under construction!</span>
 						</div>
 					</div>
-
 					<div></div>
 				</section>
 				<section id="about">
+					<div id="nav-background"></div>
 					<div class="content">
 						<div id="about-introduction">
 							<h1 class="section-name">

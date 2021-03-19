@@ -5,6 +5,12 @@ $github-nav-text: #f0f6fc;
 $github-body: #0d1117;
 $github-body-text: #8b949e;
 
+$color-github: #161b22;
+$color-linkedin: #0a66c2;
+$color-mail: #77dd77;
+
+$nav-height: 3.34375rem;
+
 html {
 	font-size: 100%;
 }
@@ -37,6 +43,7 @@ ul {
 
 nav {
 	position: fixed;
+	height: $nav-height;
 	width: 100%;
 	opacity: 0;
 	font-weight: 700;
@@ -48,7 +55,6 @@ nav {
 	}
 	&.opaque {
 		opacity: 1;
-		background-color: $github-nav;
 
 		ul li a {
 			color: $github-nav-text;
@@ -77,6 +83,18 @@ nav {
 				}
 			}
 		}
+	}
+}
+
+#nav-background {
+	position: absolute;
+	height: $nav-height;
+	width: 100%;
+	background-color: $github-nav;
+
+	&.fixed {
+		position: fixed;
+		top: 0;
 	}
 }
 
@@ -140,8 +158,25 @@ section {
 		}
 		#socials {
 			font-size: 3rem;
-			* {
+
+			> * {
+				color: inherit;
 				margin: 0 0.5rem;
+
+				svg, path {
+					color: inherit;
+					transition: color 0.1s;
+				}
+
+				&#icon-github:hover {
+					color: $github-nav;
+				}
+				&#icon-linkedin:hover {
+					color: $color-linkedin;
+				}
+				&#icon-mail:hover{
+					color: $color-mail;
+				}
 			}
 		}
 		#wip {
@@ -154,17 +189,12 @@ section {
 }
 
 #about, #resume {
-	min-height: 100vh;
 	font-weight: 600;
 }
 
 #about {
 	background-color: $github-body;
 	color: $github-body-text;
-
-	* {
-		max-width: 50rem;
-	}
 
 	a {
 		color: white;
@@ -190,6 +220,7 @@ section {
 }
 
 #resume {
+	min-height: 100vh;
 	background-color: white;
 
 	a {
