@@ -74,10 +74,10 @@ class App extends React.Component {
 							Web Developer | Game Developer
 						</h2>
 						<div id="socials">
-							<a id="icon-github" href="https://github.com/ww2497">
+							<a id="icon-github" href="https://github.com/ww2497" target="_blank">
 								<FontAwesomeIcon icon={faGithub} />
 							</a>
-							<a id="icon-linkedin" href="https://www.linkedin.com/in/ww2497/">
+							<a id="icon-linkedin" href="https://www.linkedin.com/in/ww2497/" target="_blank">
 								<FontAwesomeIcon icon={faLinkedin} />
 							</a>
 							<a id="icon-mail" href="mailto:ww2497@rit.edu">
@@ -118,7 +118,7 @@ class App extends React.Component {
 							<div>
 								<h3 class="white">OBJECTIVE</h3>
 								<p class="justify">
-									Currently, I'm available for the summer & fall of 2021.
+									Currently, I'm available for the summer and fall of 2021.
 									I'd be interested in a software developer or full-stack developer internship for either the summer or fall, or for both.
 									You can find my résumé below ― if you think I'd be a good fit, shoot me an email at <a href="mailto:ww2497@rit.edu">ww2497@rit.edu</a>!
 								</p>
