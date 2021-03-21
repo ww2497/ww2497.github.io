@@ -33,10 +33,6 @@ ul {
 	filter: drop-shadow(0 0 0.1rem black);
 }
 
-.justify {
-	text-align: justify;
-}
-
 .white {
 	color: white;
 }
@@ -203,6 +199,10 @@ section {
 
 	a {
 		color: white;
+	}
+
+	p {
+		text-align: left;
 	}
 
 	#about-introduction * {

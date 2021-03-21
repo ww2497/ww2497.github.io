@@ -98,18 +98,18 @@ class App extends React.Component {
 							<h1 class="section-name">
 								About
 							</h1>
-							<p class="white">
+							<h3 class="white">
 								NOTE: Under construction!
-							</p>
+							</h3>
 							<h1 class="white">
 								Hello there!
 							</h1>
-							<p class="justify">
+							<p>
 								I'm <span>William</span>, an undergraduate <span>Computer Science</span> student at the <span>Rochester Institute of Technology</span>.
 								My expected graduation date is <span>May 2023</span>.
 								I have a passion for full-stack development with a lean towards front-end development.
 							</p>
-							<p class="justify">
+							<p>
 								At present <span>(Spring 2020)</span>, I'm taking the semester off and waiting for classes to come offline so that my learning experience isn't affected.
 								In the meantime, I'm doing game development work in addition to working on some other projects, such as this website.
 							</p>
@@ -117,17 +117,17 @@ class App extends React.Component {
 						<div id="about-info">
 							<div>
 								<h3 class="white">OBJECTIVE</h3>
-								<p class="justify">
+								<p>
 									Currently, I'm available for the summer and fall of 2021.
 									I'd be interested in a software developer or full-stack developer internship for either the summer or fall, or for both.
 								</p>
-								<p class="justify">
-									You can find my résumé below ― if you think I'd be a good fit, shoot me an email at <a href="mailto:ww2497@rit.edu">ww2497@rit.edu</a>!
+								<p>
+									You can find my résumé below ― if you think that I'd be a good fit, shoot me an email at <a href="mailto:ww2497@rit.edu">ww2497@rit.edu</a>!
 								</p>
 							</div>
 							<div>
 								<h3 class="white">INFORMATION</h3>
-								<p class="justify">
+								<p>
 									TODO
 								</p>
 							</div>
@@ -139,7 +139,7 @@ class App extends React.Component {
 						<h1 class="section-name">
 							Résumé
 						</h1>
-						<p class="justify">
+						<p>
 							Sorry, this part is also under construction! For now, <a href="/resume.pdf">here's</a> a link to a PDF of my résumé.
 						</p>
 					</div>
