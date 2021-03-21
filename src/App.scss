@@ -64,6 +64,7 @@ nav {
 		list-style: none;
 		margin: 0;
 		text-align: center;
+		white-space: nowrap;
 
 		li {
 			display: inline-block;
@@ -118,7 +119,7 @@ section {
 
 #home {
 	height: 100vh;
-	min-height: 55vw;
+	min-height: Max(55vw, 25rem);
 
 	#rain-image, #rain-video {
 		position: absolute;
@@ -206,7 +207,6 @@ section {
 
 	#about-introduction * {
 		max-width: 50rem;
-		margin: 5rem inherit;
 
 		span {
 			color: lighten($github-body-text, 10);

@@ -120,6 +120,8 @@ class App extends React.Component {
 								<p class="justify">
 									Currently, I'm available for the summer and fall of 2021.
 									I'd be interested in a software developer or full-stack developer internship for either the summer or fall, or for both.
+								</p>
+								<p class="justify">
 									You can find my résumé below ― if you think I'd be a good fit, shoot me an email at <a href="mailto:ww2497@rit.edu">ww2497@rit.edu</a>!
 								</p>
 							</div>
@@ -133,12 +135,14 @@ class App extends React.Component {
 					</div>
 				</section>
 				<section id="resume">
-					<h1 class="section-name">
-						Résumé
-					</h1>
-					<p>
-						Sorry, this part is also under construction! For now, <a href="/résumé.pdf">here's</a> a link to a PDF of my résumé.
-					</p>
+					<div class="content">
+						<h1 class="section-name">
+							Résumé
+						</h1>
+						<p class="justify">
+							Sorry, this part is also under construction! For now, <a href="/resume.pdf">here's</a> a link to a PDF of my résumé.
+						</p>
+					</div>
 				</section>
 			</div>
 		);
