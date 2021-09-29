@@ -9,6 +9,8 @@ $color-github: #161b22;
 $color-linkedin: #0a66c2;
 $color-mail: #77dd77;
 
+$resume-background: #f8f8f8;
+
 $nav-height: 3.34375rem;
 
 html {
@@ -17,7 +19,7 @@ html {
 
 body {
 	margin: 0;
-	font-family: 'Open Sans', sans-serif;
+	font-family: Open Sans, sans-serif;
 }
 
 a:link, a:visited {
@@ -190,12 +192,12 @@ section {
 }
 
 #about, #resume {
-	font-weight: 600;
+	font-weight: 400;
 }
 
 #about {
 	background-color: $github-body;
-	color: $github-body-text;
+	color: lighten($github-body-text, 10);
 
 	a {
 		color: white;
@@ -209,7 +211,7 @@ section {
 		max-width: 50rem;
 
 		span {
-			color: lighten($github-body-text, 10);
+			color: lighten($github-body-text, 20);
 		}
 	}
 
@@ -225,7 +227,7 @@ section {
 
 #resume {
 	min-height: 100vh;
-	background-color: white;
+	background-color: $resume-background;
 
 	a {
 		color: orange;
