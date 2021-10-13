@@ -35,29 +35,18 @@ ul {
 	filter: drop-shadow(0 0 0.1rem black);
 }
 
-.white {
-	color: white;
-}
-
 nav {
 	position: fixed;
 	height: $nav-height;
 	width: 100%;
-	opacity: 0;
 	font-weight: 700;
 	transition: opacity 0.2s, background-color 0.2s;
-	z-index: 1;
+	z-index: 2;
 
-	&.transparent {
-		opacity: 1;
+	&.invisible {
+		opacity: 0;
 	}
-	&.opaque {
-		opacity: 1;
 
-		ul li a {
-			color: $github-nav-text;
-		}
-	}
 	ul {
 		list-style: none;
 		margin: 0;
@@ -77,6 +66,7 @@ nav {
 				&.active {
 					color: orange;
 				}
+
 				&:hover {
 					cursor: pointer;
 				}
@@ -86,15 +76,13 @@ nav {
 }
 
 #nav-background {
-	position: absolute;
+	position: sticky;
+	top: 0;
 	height: $nav-height;
 	width: 100%;
+	margin-bottom: -$nav-height;
 	background-color: $github-nav;
-
-	&.fixed {
-		position: fixed;
-		top: 0;
-	}
+	z-index: 1;
 }
 
 section {
@@ -108,6 +96,7 @@ section {
 		margin-right: 2rem;
 		max-width: 50rem;
 	}
+
 	.section-name {
 		margin-block-start: 0;
 		padding-top: 7.5rem;
@@ -119,6 +108,10 @@ section {
 	height: 100vh;
 	min-height: Max(55vw, 25rem);
 
+	> div {
+		flex: 1;
+	}
+
 	#rain-image, #rain-video {
 		position: absolute;
 
@@ -129,16 +122,16 @@ section {
 		height: 100vh;
 		min-height: inherit;
 	}
+
 	#rain-image {
 		z-index: -2;
 	}
+
 	#rain-video {
 		position: fixed;
 		z-index: -1;
 	}
-	> div {
-		flex: 1;
-	}
+
 	.content {
 		@extend %white-shadow;
 
@@ -147,19 +140,23 @@ section {
 		justify-content: center;
 
 		padding: 5rem 0;
+		margin: auto;
 		font-weight: 700;
 
 		#name, #roles {
 			margin: 0;
 		}
+
 		#name {
 			font-size: 3rem;
 		}
+
 		#roles {
 			margin-bottom: 0.25rem;
 			font-size: 0.9rem;
 		}
-		#socials {
+
+		#urls {
 			font-size: 3rem;
 
 			> * {
@@ -174,16 +171,20 @@ section {
 				&#icon-github:hover {
 					color: $github-nav;
 				}
+
 				&#icon-linkedin:hover {
 					color: $color-linkedin;
 				}
+
 				&#icon-mail:hover{
 					color: $color-mail;
 				}
 			}
 		}
+
 		#wip {
 			font-size: 1.25rem;
+
 			* {
 				margin: 0 0.25rem;
 			}
@@ -199,7 +200,7 @@ section {
 	background-color: $github-body;
 	color: lighten($github-body-text, 10);
 
-	a {
+	a, h2, h3 {
 		color: white;
 	}
 
