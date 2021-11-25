@@ -11,8 +11,11 @@ import './App.sass';
 import rainImage from './assets/rain.jpg';
 import rainVideo from './assets/rain.mp4';
 
+var classNames = require('classnames');
+
 function App(props) {
-	const [navShown, showNav] = useState(true);
+	const [navHidden, hideNav] = useState(false);
+	const [navBackground, showNavBackground] = useState(false);
 	const scrollDuration = 500;
 
 	function getVideo() {
@@ -21,11 +24,11 @@ function App(props) {
 
 	return (
 		<div>
-			<nav id="nav" className={navShown ? "" : "hide"}>
+			<nav id="nav" className={classNames({"hide": navHidden}, {"background": navBackground})}>
 				<ul>
-					<li id="navHome"><Link activeClass="active" to="home" spy={true} smooth={true} duration={scrollDuration} onSetActive={() => showNav(false)}>Home</Link></li>
-					<li id="navAbout"><Link activeClass="active" to="about" spy={true} smooth={true} duration={scrollDuration} onSetActive={() => showNav(true)}>About</Link></li>
-					<li id="navResume"><Link activeClass="active" to="resume" spy={true} smooth={true} duration={scrollDuration}>Résumé</Link></li>
+					<li id="navHome"><Link activeClass="active" to="home" spy={true} smooth={true} duration={scrollDuration} onSetActive={() => [hideNav(true), showNavBackground(false)]}>Home</Link></li>
+					<li id="navAbout"><Link activeClass="active" to="about" spy={true} smooth={true} duration={scrollDuration} onSetActive={() => [hideNav(false), showNavBackground(true)]}>About</Link></li>
+					<li id="navPortfolio"><Link activeClass="active" to="portfolio" spy={true} smooth={true} duration={scrollDuration} onSetActive={() => showNavBackground(true)}>Portfolio</Link></li>
 				</ul>
 			</nav>
 			<Waypoint onEnter={() => getVideo().play()} onLeave={() => getVideo().pause()}></Waypoint>
@@ -36,7 +39,7 @@ function App(props) {
 					Your browser does not support the video tag.
 				</video>
 
-				<Waypoint onEnter={() => showNav(true)} onLeave={() => showNav(false)}>
+				<Waypoint onEnter={() => hideNav(false)} onLeave={() => hideNav(true)}>
 					<div></div>
 				</Waypoint>
 				<div className="content">
@@ -85,7 +88,7 @@ function App(props) {
 						<div>
 							<h3>OBJECTIVE</h3>
 							<p>
-								Currently, I'm looking for internships for the summer and fall of 2022.
+								Currently, I'm looking for internships taking place during the summer and fall of 2022.
 							</p>
 							<p>
 								You can find my résumé below ― if you think that I might be a good fit, feel free to send me an email at <a href="mailto:ww2497@rit.edu">ww2497@rit.edu</a>!
@@ -100,19 +103,44 @@ function App(props) {
 					</div>
 				</div>
 			</section>
-			<section id="resume">
+			<section id="portfolio">
 				<div className="content">
 					<h1 className="section-name">
-						Projects
+						Portfolio
 					</h1>
 					<p>
-						Still thinking about how to best present my projects.
+						Still working on the stuff you see below. For now, <a href="/Résumé.pdf">here's</a> a link to a PDF of my résumé.
 					</p>
-					<p>
-						For now, <a href="/Résumé.pdf">here's</a> a link to a PDF of my résumé.
-					</p>
+					<div id="projects">
+						<Project title="Rogue Lineage">
+							<p>
+								Bee
+							</p>
+						</Project>
+						<Project title="brickhack.io">
+							<p>
+								Bee
+							</p>
+						</Project>
+						<Project title="Micro Counter">
+							<p>
+								Bee
+							</p>
+						</Project>
+					</div>
 				</div>
 			</section>
+		</div>
+	);
+}
+
+function Project(props) {
+	const [visible, makeVisible] = useState(false);
+	return (
+		<div className={classNames("project", {"fadein": visible})}>
+			<h1>{props.title}</h1>
+			{props.children}
+			<Waypoint onEnter={() => makeVisible(true)}></Waypoint>
 		</div>
 	);
 }

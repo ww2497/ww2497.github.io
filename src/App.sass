@@ -3,13 +3,14 @@ $github-nav-text: #f0f6fc
 $github-body: #0d1117
 $github-body-text: #8b949e
 
-$color-github: #161b22
-$color-linkedin: #0a66c2
-$color-mail: #77dd77
+$icon-github: #161b22
+$icon-linkedin: #0a66c2
+$icon-mail: #77dd77
 
-$resume-background: #f8f8f8
+$bg-portfolio: #f8f8f8
 
 $nav-height: 3.34375rem
+$section-width: 50rem
 
 html
 	font-size: 100%
@@ -33,11 +34,14 @@ nav
 	height: $nav-height
 	width: 100%
 	font-weight: 600
-	transition: opacity 0.2s, background-color 0.2s
+	transition: 0.2s
 	z-index: 2
 
 	&.hide
 		opacity: 0
+
+	&.background
+		background-color: $github-nav
 
 	ul
 		list-style: none
@@ -77,8 +81,9 @@ section
 	text-align: center
 
 	.content
-		margin: 0 1rem
-		max-width: 50rem
+		$margin: 1rem
+		width: calc(100% - 2 * #{$margin})
+		max-width: $section-width
 
 	.section-name
 		margin-block-start: 0
@@ -139,16 +144,16 @@ section
 
 				svg, path
 					color: inherit
-					transition: color 0.075s
+					transition: color 0.05s
 
 				&#icon-github:hover
-					color: $github-nav
+					color: $icon-github
 
 				&#icon-linkedin:hover
-					color: $color-linkedin
+					color: $icon-linkedin
 
 				&#icon-mail:hover
-					color: $color-mail
+					color: $icon-mail
 
 		#wip
 			font-size: 1.25rem
@@ -164,34 +169,53 @@ section
 	color: lighten($github-body-text, 10)
 
 	a, h2, h3
-		color: white
+		@extend %white-shadow
 
 	p
 		text-align: left
 
-	#about-introduction *
-		max-width: 50rem
-
-		span
-			color: lighten($github-body-text, 20)
+	#about-introduction span
+		color: lighten($github-body-text, 20)
 
 	#about-info
-		max-width: 50rem
 		margin-bottom: 5rem
 
 		div
 			text-align: left
 
-#resume
+#portfolio
 	min-height: 100vh
-	background-color: $resume-background
+	background-color: $bg-portfolio
 
 	a
 		color: orange
 
+	#projects
+		display: grid
+		grid-template-columns: repeat(1, 1fr)
+		grid-gap: 2rem
+		margin: 2rem 0
+		text-align: left
+
+		.project
+			aspect-ratio: 1
+			padding: 1rem
+			border-radius: 0.5rem
+			box-shadow: 0.1rem 0.1rem 0.25rem transparentize(black, 0.75)
+			opacity: 0
+			transform: translateX(-10rem)
+			transition: 1s
+
+			&.fadein
+				opacity: 1
+				transform: none
+
+			h1
+				margin-block-start: 0
+
 @media(min-width: 60vh) // desktop proportions
 	#home #rain-image, #home #rain-video
-		object-position: 0% 100% // always show left side of the background video
+		object-position: 0% 100% // always show the left side of the background video
 
 	#about #about-info
 		display: flex
@@ -199,3 +223,6 @@ section
 
 		div
 			flex: 1
+
+	#portfolio #projects
+		grid-template-columns: repeat(2, 1fr)
