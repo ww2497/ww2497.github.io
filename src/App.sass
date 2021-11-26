@@ -87,7 +87,7 @@ section
 
 	.section-name
 		margin-block-start: 0
-		padding-top: 7.5rem
+		padding-top: 5rem
 		color: orange
 
 #home
@@ -193,17 +193,20 @@ section
 	#projects
 		display: grid
 		grid-template-columns: repeat(1, 1fr)
-		grid-gap: 2rem
+		grid-gap: 1.5rem
 		margin: 2rem 0
 		text-align: left
 
 		.project
 			aspect-ratio: 1
-			padding: 1rem
+			display: flex
+			align-items: center
+			justify-content: center
 			border-radius: 0.5rem
-			box-shadow: 0.1rem 0.1rem 0.25rem transparentize(black, 0.75)
+			overflow: hidden
+			box-shadow: 0.2rem 0.2rem 0.5rem transparentize(black, 0.75)
 			opacity: 0
-			transform: translateX(-10rem)
+			transform: translateX(-5rem)
 			transition: 1s
 
 			&.fadein
@@ -212,6 +215,17 @@ section
 
 			h1
 				margin-block-start: 0
+
+			img
+				width: 100%
+
+@media(min-width: 30rem)
+	#portfolio #projects
+		grid-template-columns: repeat(2, 1fr)
+
+@media(min-width: $section-width)
+	#portfolio #projects
+		grid-template-columns: repeat(3, 1fr)
 
 @media(min-width: 60vh) // desktop proportions
 	#home #rain-image, #home #rain-video
@@ -223,6 +237,3 @@ section
 
 		div
 			flex: 1
-
-	#portfolio #projects
-		grid-template-columns: repeat(2, 1fr)

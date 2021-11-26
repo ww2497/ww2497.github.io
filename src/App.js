@@ -11,12 +11,16 @@ import './App.sass';
 import rainImage from './assets/rain.jpg';
 import rainVideo from './assets/rain.mp4';
 
+import rogue from './assets/rogue.png';
+import brickhack from './assets/brickhack.png';
+import wegmans from './assets/wegmans.png';
+
 var classNames = require('classnames');
 
 function App(props) {
 	const [navHidden, hideNav] = useState(false);
 	const [navBackground, showNavBackground] = useState(false);
-	const scrollDuration = 500;
+	const scrollDuration = 750;
 
 	function getVideo() {
 		return document.getElementById("rain-video");
@@ -86,16 +90,16 @@ function App(props) {
 					</div>
 					<div id="about-info">
 						<div>
-							<h3>OBJECTIVE</h3>
+							<h3>Objective</h3>
 							<p>
-								Currently, I'm looking for internships taking place during the summer and fall of 2022.
+								Currently, I'm looking for internships taking place during the summer or fall of 2022.
 							</p>
 							<p>
 								You can find my résumé below ― if you think that I might be a good fit, feel free to send me an email at <a href="mailto:ww2497@rit.edu">ww2497@rit.edu</a>!
 							</p>
 						</div>
 						<div>
-							<h3>INFORMATION</h3>
+							<h3>Placeholder</h3>
 							<p>
 								Under construction!
 							</p>
@@ -109,24 +113,13 @@ function App(props) {
 						Portfolio
 					</h1>
 					<p>
-						Still working on the stuff you see below. For now, <a href="/Résumé.pdf">here's</a> a link to a PDF of my résumé.
+						Still working on the modals for the stuff you see below! For now, <a href="/Résumé.pdf">here's</a> a link to a PDF of my résumé.
 					</p>
+					<h2>Select Projects</h2>
 					<div id="projects">
-						<Project title="Rogue Lineage">
-							<p>
-								Bee
-							</p>
-						</Project>
-						<Project title="brickhack.io">
-							<p>
-								Bee
-							</p>
-						</Project>
-						<Project title="Micro Counter">
-							<p>
-								Bee
-							</p>
-						</Project>
+						<Project id="rogue" />
+						<Project id="brickhack" />
+						<Project id="microcounter" />
 					</div>
 				</div>
 			</section>
@@ -136,10 +129,17 @@ function App(props) {
 
 function Project(props) {
 	const [visible, makeVisible] = useState(false);
+	const info = {};
+	info.images = {
+		"rogue": rogue,
+		"brickhack": brickhack,
+		"microcounter": wegmans,
+	};
+	const id = props.id;
+	const image = id in info.images ? <img src={info.images[id]} alt="Project icon"/> : null;
 	return (
 		<div className={classNames("project", {"fadein": visible})}>
-			<h1>{props.title}</h1>
-			{props.children}
+			{image}
 			<Waypoint onEnter={() => makeVisible(true)}></Waypoint>
 		</div>
 	);
