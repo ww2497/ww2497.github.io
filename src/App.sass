@@ -7,7 +7,7 @@ $icon-github: #161b22
 $icon-linkedin: #0a66c2
 $icon-mail: #77dd77
 
-$bg-portfolio: #f8f8f8
+$bg-resume: #f8f8f8
 
 $nav-height: 3.34375rem
 $section-width: 50rem
@@ -183,9 +183,9 @@ section
 		div
 			text-align: left
 
-#portfolio
+#resume
 	min-height: 100vh
-	background-color: $bg-portfolio
+	background-color: $bg-resume
 
 	a
 		color: orange
@@ -220,11 +220,11 @@ section
 				width: 100%
 
 @media(min-width: 30rem)
-	#portfolio #projects
+	#resume #projects
 		grid-template-columns: repeat(2, 1fr)
 
 @media(min-width: $section-width)
-	#portfolio #projects
+	#resume #projects
 		grid-template-columns: repeat(3, 1fr)
 
 @media(min-width: 60vh) // desktop proportions

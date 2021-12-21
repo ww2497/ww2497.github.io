@@ -32,7 +32,7 @@ function App(props) {
 				<ul>
 					<li id="navHome"><Link activeClass="active" to="home" spy={true} smooth={true} duration={scrollDuration} onSetActive={() => [hideNav(true), showNavBackground(false)]}>Home</Link></li>
 					<li id="navAbout"><Link activeClass="active" to="about" spy={true} smooth={true} duration={scrollDuration} onSetActive={() => [hideNav(false), showNavBackground(true)]}>About</Link></li>
-					<li id="navPortfolio"><Link activeClass="active" to="portfolio" spy={true} smooth={true} duration={scrollDuration} onSetActive={() => showNavBackground(true)}>Portfolio</Link></li>
+					<li id="navResume"><Link activeClass="active" to="resume" spy={true} smooth={true} duration={scrollDuration} onSetActive={() => showNavBackground(true)}>Résumé</Link></li>
 				</ul>
 			</nav>
 			<Waypoint onEnter={() => getVideo().play()} onLeave={() => getVideo().pause()}></Waypoint>
@@ -107,19 +107,22 @@ function App(props) {
 					</div>
 				</div>
 			</section>
-			<section id="portfolio">
+			<section id="resume">
 				<div className="content">
 					<h1 className="section-name">
-						Portfolio
+						Résumé
 					</h1>
 					<p>
-						Still working on the modals for the stuff you see below! For now, <a href="/Résumé.pdf">here's</a> a link to a PDF of my résumé.
+						Still working on the modals for the stuff you see below! For now, <a href="./resume.pdf">here's</a> a link to a PDF of my résumé.
 					</p>
-					<h2>Select Projects</h2>
+					<h2>Projects</h2>
 					<div id="projects">
-						<Project id="rogue" />
-						<Project id="brickhack" />
-						<Project id="microcounter" />
+						<Project image={rogue}>
+						</Project>
+						<Project image={brickhack}>
+						</Project>
+						<Project image={wegmans}>
+						</Project>
 					</div>
 				</div>
 			</section>
@@ -129,17 +132,9 @@ function App(props) {
 
 function Project(props) {
 	const [visible, makeVisible] = useState(false);
-	const info = {};
-	info.images = {
-		"rogue": rogue,
-		"brickhack": brickhack,
-		"microcounter": wegmans,
-	};
-	const id = props.id;
-	const image = id in info.images ? <img src={info.images[id]} alt="Project icon"/> : null;
 	return (
 		<div className={classNames("project", {"fadein": visible})}>
-			{image}
+			{<img src={props.image} alt="Project icon"/>}
 			<Waypoint onEnter={() => makeVisible(true)}></Waypoint>
 		</div>
 	);
