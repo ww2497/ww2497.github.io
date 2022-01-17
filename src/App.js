@@ -85,14 +85,17 @@ function App(props) {
 						<p>
 							I'm <span>William</span>, an undergraduate <span>Computer Science</span> student at <span>Rochester Institute of Technology</span>.
 							My expected graduation date is <span>May 2023</span>.
+						</p>
+						<p>
 							I have a passion for full-stack development with a lean towards front-end development.
+							In my free time, you'll find me developing games on <span>Roblox Studio</span>, reading the latest <span>Brandon Sanderson</span> novel, or drawing on my tablet.
 						</p>
 					</div>
 					<div id="about-info">
 						<div>
 							<h3>Objective</h3>
 							<p>
-								Currently, I'm looking for internships taking place during the summer of 2022.
+								Currently, I'm looking for an internship for the summer of 2022.
 							</p>
 							<p>
 								You can find my résumé below ― if you think that I might be a good fit, feel free to shoot me an email at <a href="mailto:ww2497@rit.edu">ww2497@rit.edu</a>!
@@ -135,7 +138,7 @@ function Project(props) {
 	return (
 		<div className={classNames("project", {"fadein": visible})}>
 			{<img src={props.image} alt="Project icon"/>}
-			<Waypoint onEnter={() => makeVisible(true)} onExit={() => makeVisible(false)}></Waypoint>
+			<Waypoint onEnter={() => makeVisible(true)}></Waypoint>
 		</div>
 	);
 }
