@@ -92,10 +92,10 @@ function App(props) {
 						<div>
 							<h3>Objective</h3>
 							<p>
-								Currently, I'm looking for internships taking place during the summer or fall of 2022.
+								Currently, I'm looking for internships taking place during the summer of 2022.
 							</p>
 							<p>
-								You can find my résumé below ― if you think that I might be a good fit, feel free to send me an email at <a href="mailto:ww2497@rit.edu">ww2497@rit.edu</a>!
+								You can find my résumé below ― if you think that I might be a good fit, feel free to shoot me an email at <a href="mailto:ww2497@rit.edu">ww2497@rit.edu</a>!
 							</p>
 						</div>
 						<div>
@@ -113,7 +113,7 @@ function App(props) {
 						Résumé
 					</h1>
 					<p>
-						Still working on the modals for the stuff you see below! For now, <a href="./resume.pdf">here's</a> a link to a PDF of my résumé.
+						Sorry, still working on the modals for the stuff you see below! For now, <a href="./resume.pdf">here's</a> a link to a PDF of my résumé.
 					</p>
 					<h2>Projects</h2>
 					<div id="projects">
@@ -135,7 +135,7 @@ function Project(props) {
 	return (
 		<div className={classNames("project", {"fadein": visible})}>
 			{<img src={props.image} alt="Project icon"/>}
-			<Waypoint onEnter={() => makeVisible(true)}></Waypoint>
+			<Waypoint onEnter={() => makeVisible(true)} onExit={() => makeVisible(false)}></Waypoint>
 		</div>
 	);
 }
